@@ -21,7 +21,7 @@ example
 
 ```./launch.sh -show drun spotlight```
 
-# Themeing
+# Theming
 
 the script uses the ``templates`` folder to use the theme as a template, then it replaces ``{@CONTEXT}`` valid tags and turn it onto a proper gtk style context color, then it outputs it into the ``themes`` folder.
 
