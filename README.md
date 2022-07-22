@@ -5,17 +5,21 @@ theme your rofi css using gtk
 
 # Cloning
 
-clone it onto your $HOME/.config/rofi folder
+Copy this onto your terminal
 
-``git clone https://github.com/git-fal7/gtk-rofi $HOME/.config/rofi/gtk-rofi``
+```
+git clone https://github.com/git-fal7/gtk-rofi $HOME/.config/rofi/gtk-rofi
+cd $HOME/.config/rofi/gtk-rofi
+chmod +x ./launcher.sh
+```
 
 # Usage
 
-./launcher.sh (Rofi arguments) (Your theme (without .rasi extension)
+```./launcher.sh (Rofi arguments) (Your theme (without .rasi extension)```
 
 example
 
-``./launch.sh -show drun spotlight``
+```./launch.sh -show drun spotlight```
 
 
 # Templates
