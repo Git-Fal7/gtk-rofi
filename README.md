@@ -21,6 +21,10 @@ example
 
 ```./launch.sh -show drun spotlight```
 
+# Themeing
 
-# Templates
-![I uploaded themes that i use that already works with the shell script](https://github.com/Git-Fal7/gtk-rofi/tree/main/templates)
+the script uses the ``templates`` folder to use the theme as a template, then it replaces ``{@CONTEXT}`` valid tags and turn it onto a proper gtk style context color, then it outputs it into the ``themes`` folder.
+
+![List of style context colors](https://github.com/Git-Fal7/gtk-rofi/blob/8fab89f8efd8df3b1360a8f0ac97ecd7eda1fe53/scripts/file_gtk_style.py#L31)
+
+![Heres some themes that works](https://github.com/Git-Fal7/gtk-rofi/tree/main/templates)
