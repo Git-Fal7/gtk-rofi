@@ -19,7 +19,7 @@ chmod +x ./launcher.sh
 
 example
 
-```./launch.sh -show drun spotlight```
+```./launcher.sh -show drun spotlight```
 
 # Theming
 
