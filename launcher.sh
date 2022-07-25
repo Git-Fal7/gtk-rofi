@@ -22,7 +22,7 @@ CURRENT_GTK_THEME="${CURRENT_GTK_THEME%?}"
 #Gets the gtk theme that is in the settings.ini file
 SETTINGS_GTK_THEME=$(grep "GTK_THEME" "${SETTINGS}" | cut -b 11-)
 
-#Checks either icon or gtk theme isn't the same
+#Checks either gtk theme isn't the same
 if [ "${SETTINGS_GTK_THEME}" != "${CURRENT_GTK_THEME}" ]; then
  echo "Updating settings"
  sed -i "s:GTK_THEME=${SETTINGS_GTK_THEME}:GTK_THEME=${CURRENT_GTK_THEME}:g" "${SETTINGS}"
@@ -36,11 +36,21 @@ else
  echo "All Good"
 fi
 
-THEME=${*:$#}
+if [ $# -gt 0 ]; then
+ eval "THEME=\${$#}"
+ ARGS="$1"
+fi
+
+i=2
+while [ $i -lt $# ]; do
+ eval "var=\${$i}"
+ ARGS=$(printf "%s $var" "$ARGS")
+ i=$((i+1))
+done
 
 if [ -e "${THEMEDIR}"/"${THEME}".rasi ]; then
  echo "Theme exists, great"
- rofi "${@:1:($#-1)}" -theme "${THEMEDIR}"/"${THEME}".rasi -theme-str "configuration { show-icons: true; icon-theme: $(gsettings get org.gnome.desktop.interface icon-theme | tr "'" '"');}"
+ rofi $(echo "${ARGS}") -theme "${THEMEDIR}"/"${THEME}".rasi -theme-str "configuration { show-icons: true; icon-theme: $(gsettings get org.gnome.desktop.interface icon-theme | tr "'" '"');}"
 else
  echo "Theme doesn't exist"
 fi
