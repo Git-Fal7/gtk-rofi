@@ -26,10 +26,12 @@ SETTINGS_GTK_THEME=$(grep "GTK_THEME" "${SETTINGS}" | cut -b 11-)
 if [ "${SETTINGS_GTK_THEME}" != "${CURRENT_GTK_THEME}" ]; then
  echo "Updating settings"
  sed -i "s:GTK_THEME=${SETTINGS_GTK_THEME}:GTK_THEME=${CURRENT_GTK_THEME}:g" "${SETTINGS}"
-
+ if [ ! -d "$THEMEDIR" ]; then
+  mkdir -p "$THEMEDIR"
+ fi
  for f in "$TEMPDIR"/*; do
   file=$(basename "${f}")
-  "${SCRIPTDIR}"/file_gtk_style.py "${TEMPDIR}"/"${file}" > "${THEMEDIR}"/"${file}"
+  python3 "${SCRIPTDIR}"/file_gtk_style.py "${TEMPDIR}"/"${file}" > "${THEMEDIR}"/"${file}"
  done
 
 else
