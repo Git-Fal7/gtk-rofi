@@ -10,7 +10,6 @@ Copy this onto your terminal
 ```
 git clone https://github.com/git-fal7/gtk-rofi $HOME/.config/rofi/gtk-rofi
 cd $HOME/.config/rofi/gtk-rofi
-chmod +x ./launcher.sh
 ```
 
 # Usage

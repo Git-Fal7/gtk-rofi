@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=$HOME/.config/rofi/gtk-rofi
+DIR=$(dirname $(realpath $0))
 
 #The scripts we will be using
 SCRIPTDIR=$DIR/scripts
